@@ -1,14 +1,14 @@
-import {Injectable} from "angular2/core";
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class WebGLContextService {
 
-    get get() { return this.context_; };
+    get context() { return this.context_; };
     
     constructor() { }
 
     create (canvas: HTMLCanvasElement) {
-        this.context_ = <WebGLRenderingContext>canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+        this.context_ = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
         return this.context_;
     };
 

@@ -1,6 +1,6 @@
-import {Injectable} from "angular2/core";
-import {Transform} from "./transform";
-import {Vec3} from "./vec3";
+import { Injectable } from "@angular/core";
+import { Transform } from "../maths/transform";
+import { Vec3 } from "../maths/vec3";
 
 @Injectable()
 export class Camera {
@@ -26,7 +26,7 @@ export class Camera {
         return this.pMatrix_;
     };
     
-    update(direction: string) {
+    update(direction: "out" | "in") {
         let zoom;
         let z_position = this.vMatrix_[14];
         if (direction == "in") {

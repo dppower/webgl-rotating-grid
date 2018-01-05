@@ -1,8 +1,7 @@
-import {Injectable} from "angular2/core";
-import {WebGLContextService} from "./webgl-context";
-import {FragmentShader} from "./fragment-shader";
-import {VertexShader} from "./vertex-shader";
-import {Camera} from "./game-camera";
+import { Injectable } from "@angular/core";
+import { WebGLContextService } from "./webgl-context";
+import { FragmentShader } from "./fragment-shader";
+import { VertexShader } from "./vertex-shader";
 
 @Injectable()
 export class WebGLProgramService {
@@ -14,7 +13,7 @@ export class WebGLProgramService {
     ) { };
 
     initWebGl() {
-        let gl = this.context_.get;
+        let gl = this.context_.context;
         
         this.initProgram(gl);
         this.initVertexArrays(gl);

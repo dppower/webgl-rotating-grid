@@ -34,25 +34,32 @@
   </PropertyGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app-main.component.ts" />
-    <TypeScriptCompile Include="canvas\canvas-frame.directive.ts" />
-    <TypeScriptCompile Include="canvas\canvas-frame.component.ts" />
+    <TypeScriptCompile Include="app.module.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="canvas\canvas-controller.directive.ts" />
+    <TypeScriptCompile Include="canvas\canvas.module.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="canvas\main-canvas.component.ts" />
     <TypeScriptCompile Include="webgl\fragment-shader.ts" />
     <TypeScriptCompile Include="objects\camera.ts" />
     <TypeScriptCompile Include="objects\base-object.ts" />
     <TypeScriptCompile Include="main.ts" />
-    <TypeScriptCompile Include="canvas\mainloop.ts" />
     <TypeScriptCompile Include="maths\mat4.ts" />
     <TypeScriptCompile Include="webgl\mesh-loader.ts" />
     <TypeScriptCompile Include="maths\quaternion.ts" />
     <TypeScriptCompile Include="maths\transform.ts" />
     <TypeScriptCompile Include="maths\vec3.ts" />
     <TypeScriptCompile Include="webgl\vertex-shader.ts" />
-    <TypeScriptCompile Include="canvas\webgl-context.ts" />
+    <TypeScriptCompile Include="webgl\webgl-context.ts" />
     <TypeScriptCompile Include="webgl\webgl-program.ts" />
     <TypeScriptCompile Include="objects\x-axis.ts" />
     <TypeScriptCompile Include="objects\y-axis.ts" />
     <TypeScriptCompile Include="objects\z-axis.ts" />
+    <TypeScriptCompile Include="webgl\webgl.module.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="tsconfig.json" />

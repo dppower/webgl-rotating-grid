@@ -1,36 +1,48 @@
-import {Injectable} from "angular2/core";
-import {Observable, Observer} from "rxjs/Rx";
-import {Http, Response} from "angular2/http";
+import { Injectable } from "@angular/core";
+
+import { of as rxOf } from "rxjs/observable/of";
+import { tap, catchError } from "rxjs/operators";
+import { HttpClient } from "@angular/common/http";
+
+export interface MeshData {
+    vertices: number[];
+    indices: number[];
+}
+
+export class Mesh {
+    vertices: Float32Array;
+    indices: Uint16Array;
+    length: number;
+}
 
 @Injectable()
 export class MeshLoader {
 
-    constructor(private http_: Http) { };
+    constructor(private http_client_: HttpClient) { };
 
-    loadMesh(fileName: string): Observable<any> {
+    loadMesh(fileName: string) {
         localStorage.clear();
         let json = localStorage.getItem(fileName);
         if (json) {
-            let object = JSON.parse(json);
-            return new Observable((observer: Observer<any>) => {
-                observer.next(object);
-                observer.complete();
-            });
+            let object = JSON.parse(json) as MeshData;
+            return rxOf(object);
         }
 
-        return this.http_.get("mesh/" + fileName)
-            .map(response => response.json())
-            .do(object => {
-                this.saveToLocal(fileName, object);
-            }).catch(this.handleError);
+        return this.http_client_.get<MeshData>("/mesh/" + fileName)
+            .pipe(
+                tap(mesh => {
+                    this.saveToLocal(fileName, mesh);
+                }),
+                catchError(this.handleError)
+            );
     };
 
     handleError(err: Response) {
-        return Observable.throw(err.json() || "server error");
+        return rxOf<MeshData>({ vertices: [], indices: [] });
     };
 
-    saveToLocal(fileName: string, object) {
-        let json = JSON.stringify(object);
-        localStorage.setItem(fileName, json);
+    saveToLocal(key: string, mesh: object) {
+        let data = JSON.stringify(mesh);
+        localStorage.setItem(key, data);
     };
 };
