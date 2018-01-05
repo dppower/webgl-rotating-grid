@@ -1,16 +1,16 @@
-import {Component, ViewChild, ElementRef, AfterViewInit, OnDestroy, provide, Inject} from "angular2/core";
-import {WebGLContextService} from "./webgl-context";
-import {WebGLProgramService} from "./webgl-program";
-import {FragmentShader} from "./fragment-shader";
-import {VertexShader} from "./vertex-shader";
-import {Camera} from "./game-camera";
-import {Transform} from "./transform";
-import {Vec3} from "./vec3";
-import {MeshLoader} from "./mesh-loader";
-import {XAxis} from "./x-axis";
-import {YAxis} from "./y-axis";
-import {ZAxis} from "./z-axis";
-import {MainLoop} from "./mainloop";
+import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy, Inject } from "@angular/core";
+import { WebGLContextService } from "./webgl-context";
+import { WebGLProgramService } from "./webgl-program";
+import { FragmentShader } from "./fragment-shader";
+import { VertexShader } from "./vertex-shader";
+import { Camera } from "./game-camera";
+import { Transform } from "./transform";
+import { Vec3 } from "./vec3";
+import { MeshLoader } from "./mesh-loader";
+import { XAxis } from "./x-axis";
+import { YAxis } from "./y-axis";
+import { ZAxis } from "./z-axis";
+import { MainLoop } from "./mainloop";
 
 @Component({
     selector: 'resizable-canvas',

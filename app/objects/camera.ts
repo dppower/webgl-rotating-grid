@@ -50,7 +50,7 @@ export class Camera {
         this.pMatrix_[14] = 2.0 * (this.near_ * this.far_) * depth;       
     };
 
-    private aspect_;
+    private aspect_: number;
 
     private near_ = 0.1;
     private far_ = 1000.0;

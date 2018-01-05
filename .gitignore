@@ -1,6 +1,5 @@
-assets/
-build/
+build
 public/mesh
-node_modules/
-typings/
-typings.json
+public/textures
+.vs
+node_modules
