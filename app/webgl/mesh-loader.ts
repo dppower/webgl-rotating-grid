@@ -28,7 +28,7 @@ export class MeshLoader {
             return rxOf(object);
         }
 
-        return this.http_client_.get<MeshData>("/mesh/" + fileName)
+        return this.http_client_.get<MeshData>("mesh/" + fileName)
             .pipe(
                 tap(mesh => {
                     this.saveToLocal(fileName, mesh);
