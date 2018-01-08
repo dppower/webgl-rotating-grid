@@ -1,1 +1,1 @@
-A visual display of quaternion rotations.
+A visual display of rotating 3d grid.
